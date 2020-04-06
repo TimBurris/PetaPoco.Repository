@@ -25,3 +25,9 @@ steps:
     minorVersion: '${{ parameters.Minor }}'
     patchVersion: '${{ parameters.Patch }}'
     outputDir: '$(Build.ArtifactStagingDirectory)'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
