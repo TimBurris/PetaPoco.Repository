@@ -1,9 +1,15 @@
 
-variables:
-  Major: '1'
-  Minor: '0'
-  Patch: '0'
-  
+parameters:
+  - name: Major
+    type: number 
+    default: 0 
+  - name: Minor
+    type: number 
+    default: 0 
+  - name: Patch
+    type: number 
+
+
 trigger: none
 
 pool:
