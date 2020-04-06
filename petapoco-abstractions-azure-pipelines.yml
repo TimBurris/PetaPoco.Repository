@@ -1,14 +1,8 @@
 
 parameters:
-  - name: Major
-    type: number 
-    default: 0 
-  - name: Minor
-    type: number 
-    default: 0 
-  - name: Patch
-    type: number 
-
+  - name: VersionNumber
+    type: string 
+    default: '0.0.'
 
 trigger: none
 
@@ -21,9 +15,7 @@ steps:
     command: pack
     packagesToPack: '**/PetaPoco.Repository.Abstractions.csproj'
     versioningScheme: byPrereleaseNumber
-    majorVersion: '${{ parameters.Major }}'
-    minorVersion: '${{ parameters.Minor }}'
-    patchVersion: '${{ parameters.Patch }}'
+    versionEnvVar: VersionNumber
     outputDir: '$(Build.ArtifactStagingDirectory)'
     
 - task: PublishBuildArtifacts@1
