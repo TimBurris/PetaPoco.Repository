@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Tim Burris</Authors>
+    <Description>Classes and interfaces to jumpstart using PetaPoco with the Repository Pattern</Description>
+    <PackageLicenseExpression>https://github.com/TimBurris/PetaPoco.Repository/blob/master/LICENSE</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/TimBurris/PetaPoco.Repository</PackageProjectUrl>
+    <PackageTags>Peta Poco Peta-Poco PetaPoco Repository Repository-Pattern microorm Micro-ORM ORM</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
