@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  packageVersion: '${{ VersionNumber }}'
+  packageVersion: $(VersionNumber)
 
 steps:
 - task: DotNetCoreCLI@2
