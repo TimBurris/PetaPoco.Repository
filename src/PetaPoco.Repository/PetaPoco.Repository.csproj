@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PetaPoco.Compiled" Version="6.0.441" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PetaPoco.Repository.Abstractions\PetaPoco.Repository.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
