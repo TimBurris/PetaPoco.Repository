@@ -14,7 +14,7 @@ steps:
   inputs:
     command: pack
     packagesToPack: '**/PetaPoco.Repository.Abstractions.csproj'
-    versioningScheme: byPrereleaseNumber
+    versioningScheme: byEnvVar
     versionEnvVar: VersionNumber
     outputDir: '$(Build.ArtifactStagingDirectory)'
     
