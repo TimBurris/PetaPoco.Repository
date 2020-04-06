@@ -1,0 +1,33 @@
+
+parameters:
+  - name: Major
+    type: number 
+    default: 0 
+  - name: Minor
+    type: number 
+    default: 0 
+  - name: Patch
+    type: number 
+
+
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: pack
+    packagesToPack: '**/PetaPoco.Repository.Abstractions.csproj'
+    versioningScheme: byPrereleaseNumber
+    majorVersion: '${{ parameters.Major }}'
+    minorVersion: '${{ parameters.Minor }}'
+    patchVersion: '${{ parameters.Patch }}'
+    outputDir: '$(Build.ArtifactStagingDirectory)'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
