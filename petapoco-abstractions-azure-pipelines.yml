@@ -21,6 +21,6 @@ steps:
     command: pack
     packagesToPack: '**/PetaPoco.Repository.Abstractions.csproj'
     versioningScheme: byPrereleaseNumber
-    majorVersion: '$(Major)'
-    minorVersion: '$(Minor)'
-    patchVersion: '$(Patch)'
+    majorVersion: '${{ parameters.Major }}'
+    minorVersion: '${{ parameters.Minor }}'
+    patchVersion: '${{ parameters.Patch }}'
