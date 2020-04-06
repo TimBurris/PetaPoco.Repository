@@ -1,0 +1,20 @@
+
+variables:
+  Major: '1'
+  Minor: '0'
+  Patch: '0'
+  
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NuGetCommand@2
+  inputs:
+    command: pack
+    packagesToPack: '**/PetaPoco.Repository.Abstractions.csproj'
+    versioningScheme: byPrereleaseNumber
+    majorVersion: '$(Major)'
+    minorVersion: '$(Minor)'
+    patchVersion: '$(Patch)'
