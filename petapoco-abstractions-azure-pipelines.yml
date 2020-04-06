@@ -16,7 +16,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: pack
     packagesToPack: '**/PetaPoco.Repository.Abstractions.csproj'
@@ -24,3 +24,4 @@ steps:
     majorVersion: '${{ parameters.Major }}'
     minorVersion: '${{ parameters.Minor }}'
     patchVersion: '${{ parameters.Patch }}'
+    outputDir: '$(Build.ArtifactStagingDirectory)'
