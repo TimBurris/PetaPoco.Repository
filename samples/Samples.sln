@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWithDependencyInjection", "SampleWithDependencyInjection\SampleWithDependencyInjection\SampleWithDependencyInjection.csproj", "{73523823-2F87-4096-919D-54505E944475}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetaPoco.Repository.Abstractions", "..\src\PetaPoco.Repository.Abstractions\PetaPoco.Repository.Abstractions.csproj", "{FB208B36-0AAE-4E44-921F-EE7ACFE88E81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetaPoco.Repository", "..\src\PetaPoco.Repository\PetaPoco.Repository.csproj", "{FAF00C0C-1B37-48E2-A502-1E8A33341858}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWithDefaultConfiguration", "SampleWithDefaultConfiguration\SampleWithDefaultConfiguration\SampleWithDefaultConfiguration.csproj", "{CBDDF2A1-B97C-413E-B0E9-89A5F038783D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "localdb", "localdb", "{E29F8969-A1FD-4B4D-B127-AF8C52B691C6}"
+	ProjectSection(SolutionItems) = preProject
+		localdb\SampleDB.mdf = localdb\SampleDB.mdf
+		localdb\SampleDB_log.ldf = localdb\SampleDB_log.ldf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73523823-2F87-4096-919D-54505E944475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73523823-2F87-4096-919D-54505E944475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73523823-2F87-4096-919D-54505E944475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73523823-2F87-4096-919D-54505E944475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB208B36-0AAE-4E44-921F-EE7ACFE88E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB208B36-0AAE-4E44-921F-EE7ACFE88E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB208B36-0AAE-4E44-921F-EE7ACFE88E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB208B36-0AAE-4E44-921F-EE7ACFE88E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF00C0C-1B37-48E2-A502-1E8A33341858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF00C0C-1B37-48E2-A502-1E8A33341858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF00C0C-1B37-48E2-A502-1E8A33341858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF00C0C-1B37-48E2-A502-1E8A33341858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBDDF2A1-B97C-413E-B0E9-89A5F038783D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBDDF2A1-B97C-413E-B0E9-89A5F038783D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBDDF2A1-B97C-413E-B0E9-89A5F038783D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBDDF2A1-B97C-413E-B0E9-89A5F038783D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {149C9354-72ED-4CFA-ABB6-454934C9A4A2}
+	EndGlobalSection
+EndGlobal
