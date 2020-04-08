@@ -7,7 +7,7 @@ namespace PetaPoco.Repository.Abstractions
     public interface IReadRepository<T, TPrimaryKeyType>
     {
         T FindById(TPrimaryKeyType entityId);
-        List<T> FindAllByIds(IEnumerable<TPrimaryKeyType> entityIds);
-        List<T> GetAll();
+        IEnumerable<T> FindAllByIds(IEnumerable<TPrimaryKeyType> entityIds);
+        IEnumerable<T> GetAll();
     }
 }

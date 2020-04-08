@@ -7,6 +7,14 @@ namespace PetaPoco.Repository
     {
         private readonly Abstractions.IDatabaseFactory _databaseFactory;
 
+        /// <summary>
+        /// Default constructor which will use <see cref="Configuration.DefaultConfiguration"/> for databaseFactory
+        /// </summary>
+        public RepositoryBase()
+        {
+
+        }
+
         public RepositoryBase(Abstractions.IDatabaseFactory databaseFactory)
         {
             _databaseFactory = databaseFactory;
@@ -14,7 +22,7 @@ namespace PetaPoco.Repository
 
         protected virtual PetaPoco.IDatabase GetDatabase()
         {
-            return _databaseFactory.Invoke();
+            return (_databaseFactory ?? Configuration.DefaultConfiguration.DatabaseFactory).Invoke();
         }
 
         /// <summary>
@@ -51,6 +59,14 @@ namespace PetaPoco.Repository
 
     public abstract class RepositoryBase<T> : RepositoryBase
     {
+        /// <summary>
+        /// Default constructor which will use <see cref="Configuration.DefaultConfiguration"/> for databaseFactory
+        /// </summary>
+        public RepositoryBase()
+        {
+
+        }
+
         public RepositoryBase(Abstractions.IDatabaseFactory databaseFactory)
             : base(databaseFactory)
         {

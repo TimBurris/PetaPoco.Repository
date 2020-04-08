@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetaPoco.Repository", "Peta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetaPoco.Repository.Abstractions", "PetaPoco.Repository.Abstractions\PetaPoco.Repository.Abstractions.csproj", "{131BC805-6069-4506-B010-D4846D3E3F75}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{823B6F06-9F7C-4A5E-A8D6-39853808DD22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

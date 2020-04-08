@@ -9,11 +9,19 @@ namespace PetaPoco.Repository
     {
         private readonly ICrudRepositoryServiceCollection _crudRepositoryServiceCollection;
 
+        /// <summary>
+        /// Default constructor which will use <see cref="Configuration.DefaultConfiguration"/> for databaseFactory and serviceCollection
+        /// </summary>
+        public CrudRepositoryBase()
+        {
+            _crudRepositoryServiceCollection = Configuration.DefaultConfiguration.CrudServiceCollection ?? new CrudRepositoryServiceCollection();
+        }
+
         public CrudRepositoryBase(Abstractions.IDatabaseFactory databaseFactory, ICrudRepositoryServiceCollection crudRepositoryServiceCollection)
             : base(databaseFactory)
         {
 
-            _crudRepositoryServiceCollection = crudRepositoryServiceCollection ?? new CrudRepositoryServiceCollection();
+            _crudRepositoryServiceCollection = crudRepositoryServiceCollection ?? Configuration.DefaultConfiguration.CrudServiceCollection ?? new CrudRepositoryServiceCollection();
         }
 
         #region ICrudRepository Implementation
