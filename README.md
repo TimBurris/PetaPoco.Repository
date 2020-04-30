@@ -1,4 +1,4 @@
-#Intoduction
+# Intoduction
 Before reading and understanding this content you should already know [PetaPoco](https://github.com/CollaboratingPlatypus/PetaPoco "PetaPoco")
 
 PetaPoco Repository is a library of classes and interfaces created to jumpstart using PetaPoco with the Repository Pattern.
@@ -71,7 +71,7 @@ services.AddSingleton<PetaPoco.Repository.Abstractions.ICrudRepositoryServiceCol
 ```
 then add services
 
-##Extensions/Addons
+## Extensions/Addons
 [PetaPoco.Repository.CreateUpdateStamper](https://github.com/TimBurris/PetaPoco.Repository.CreateUpdateStamper// "PetaPoco.Repository.CreateUpdateStamper") is a Middleware Service Implementation allowing you automatically stamp your Models with Created By, Updated By, Created On Date and Updated On Date values at the time that it's written to the repository.
 
 [PetaPoco.Repository.Logging](https://github.com/TimBurris/PetaPoco.Repository.Logging "PetaPoco.Repository.Logging") is a Middleware Service Implementation that includes Logging capability for the repositories
