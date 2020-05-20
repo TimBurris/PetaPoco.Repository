@@ -55,6 +55,21 @@ namespace PetaPoco.Repository
                     .ToList();
             }
         }
+
+        /// <summary>
+        /// wraps up the process of starting an IDatabase instace, executing the query, and closing out the IDatabase instance
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        protected IEnumerable<T> Query<T>(PetaPoco.Sql sql)
+        {
+            using (var db = this.GetDatabase())
+            {
+                return db.Query<T>(sql)
+                    .ToList();
+            }
+        }
     }
 
     public abstract class RepositoryBase<T> : RepositoryBase
@@ -94,6 +109,16 @@ namespace PetaPoco.Repository
         protected IEnumerable<T> Query(string sql, params object[] args)
         {
             return this.Query<T>(sql, args);
+        }
+
+        /// <summary>
+        /// wraps up the process of starting an IDatabase instace, executing the query, and closing out the IDatabase instance
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        protected IEnumerable<T> Query(PetaPoco.Sql sql)
+        {
+            return this.Query<T>(sql);
         }
     }
 }
