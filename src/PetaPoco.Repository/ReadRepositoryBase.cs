@@ -34,7 +34,7 @@ namespace PetaPoco.Repository
             using (var db = this.GetDatabase())
             {
                 string primaryKeyColumn = db.Provider.EscapeSqlIdentifier(PetaPoco.Core.PocoData.ForType(typeof(T), db.DefaultMapper).TableInfo.PrimaryKey);
-                string sql = $"WHERE [{primaryKeyColumn}] IN(@0)";
+                string sql = $"WHERE {primaryKeyColumn} IN(@0)";
 
                 return db
                     .Fetch<T>(sql, entityIds)
