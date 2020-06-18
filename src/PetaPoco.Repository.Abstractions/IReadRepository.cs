@@ -10,10 +10,4 @@ namespace PetaPoco.Repository.Abstractions
         IEnumerable<T> FindAllByIds(IEnumerable<TPrimaryKeyType> entityIds);
         IEnumerable<T> GetAll();
     }
-
-    public interface IRepository
-    {
-        void AssignUnitOfWork(Abstractions.IUnitOfWork unitOfWork);
-
-    }
 }
