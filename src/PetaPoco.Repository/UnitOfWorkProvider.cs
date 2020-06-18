@@ -23,7 +23,22 @@ namespace PetaPoco.Repository
         }
         public Abstractions.IUnitOfWork GetUnitOfWork()
         {
-            return new UnitOfWork(_databaseFactory);
+            return GetUnitOfWork(enlistRepositories: null);
+        }
+
+        public IUnitOfWork GetUnitOfWork(params IRepository[] enlistRepositories)
+        {
+            var uow = new UnitOfWork(_databaseFactory);
+
+            if (enlistRepositories != null)
+            {
+                foreach (var r in enlistRepositories)
+                {
+                    r.AssignUnitOfWork(uow);
+                }
+            }
+
+            return uow;
         }
     }
 }

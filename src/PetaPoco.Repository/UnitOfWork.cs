@@ -1,11 +1,12 @@
 ﻿using PetaPoco.Repository.Abstractions;
+using System;
 
 namespace PetaPoco.Repository
 {
     public class UnitOfWork : Abstractions.IUnitOfWork
     {
         private readonly Transaction _petaTransaction;
-        private readonly IDatabase _db;
+        private IDatabase _db;
         private readonly IDatabaseFactory _databaseFactory;
 
         /// <summary>
@@ -33,7 +34,12 @@ namespace PetaPoco.Repository
 
         public void Dispose()
         {
-            _petaTransaction.Dispose();
+            if (_db != null)
+            {
+                _petaTransaction.Dispose();
+                _db.Dispose();
+                _db = null;
+            }
         }
 
         public IDatabase Db
@@ -44,6 +50,11 @@ namespace PetaPoco.Repository
         public void Commit()
         {
             _petaTransaction.Complete();
+        }
+
+        public void Enlist(IRepository repository)
+        {
+            repository.AssignUnitOfWork(this);
         }
     }
 }

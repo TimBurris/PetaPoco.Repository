@@ -3,9 +3,10 @@ using System.Linq;
 
 namespace PetaPoco.Repository
 {
-    public abstract class RepositoryBase
+    public abstract class RepositoryBase : Abstractions.IRepository
     {
         private readonly Abstractions.IDatabaseFactory _databaseFactory;
+        private Abstractions.IUnitOfWork _unitOfWork;
 
         /// <summary>
         /// Default constructor which will use <see cref="Configuration.DefaultConfiguration"/> for databaseFactory
@@ -20,9 +21,15 @@ namespace PetaPoco.Repository
             _databaseFactory = databaseFactory;
         }
 
+        public virtual void AssignUnitOfWork(Abstractions.IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
         protected virtual PetaPoco.IDatabase GetDatabase()
         {
-            return (_databaseFactory ?? Configuration.DefaultConfiguration.DatabaseFactory).Invoke();
+            //if there is a unitofwor, db could be null if unitof work has ended)
+            return _unitOfWork?.Db ?? (_databaseFactory ?? Configuration.DefaultConfiguration.DatabaseFactory).Invoke();
         }
 
         /// <summary>
