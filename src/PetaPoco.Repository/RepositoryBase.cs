@@ -28,8 +28,19 @@ namespace PetaPoco.Repository
 
         protected virtual PetaPoco.IDatabase GetDatabase()
         {
-            //if there is a unitofwor, db could be null if unitof work has ended)
-            return _unitOfWork?.Db ?? (_databaseFactory ?? Configuration.DefaultConfiguration.DatabaseFactory).Invoke();
+            //even if there is a unitofwork, db could be null if unitof work has ended)
+            var uowDb = _unitOfWork?.Db;
+            if (uowDb == null)
+            {
+                return (_databaseFactory ?? Configuration.DefaultConfiguration.DatabaseFactory).Invoke();
+            }
+            else
+            {
+                //open a shared connection so that when this database gets "disposed" it will not dispsose the entire thing, it will just  decrement the connection count, so that it's not ACTUALLY disposed until the final unitofwork close up shop
+                uowDb.OpenSharedConnection();
+
+                return uowDb;
+            }
         }
 
         /// <summary>
