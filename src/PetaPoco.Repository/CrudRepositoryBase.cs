@@ -21,7 +21,10 @@ namespace PetaPoco.Repository
             : base(databaseFactory)
         {
 
-            _crudRepositoryServiceCollection = crudRepositoryServiceCollection ?? Configuration.DefaultConfiguration.CrudServiceCollection ?? new CrudRepositoryServiceCollection();
+            _crudRepositoryServiceCollection =
+                crudRepositoryServiceCollection
+                ?? Configuration.DefaultConfiguration?.CrudServiceCollection
+                ?? new CrudRepositoryServiceCollection();
         }
 
         #region ICrudRepository Implementation
