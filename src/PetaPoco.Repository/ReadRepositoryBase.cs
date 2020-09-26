@@ -18,7 +18,7 @@ namespace PetaPoco.Repository
 
         }
 
-        public T FindById(TPrimaryKeyType entityId)
+        public virtual T FindById(TPrimaryKeyType entityId)
         {
             using (var db = this.GetDatabase())
             {
@@ -26,7 +26,7 @@ namespace PetaPoco.Repository
             }
         }
 
-        public IEnumerable<T> FindAllByIds(IEnumerable<TPrimaryKeyType> entityIds)
+        public virtual IEnumerable<T> FindAllByIds(IEnumerable<TPrimaryKeyType> entityIds)
         {
             if (entityIds == null || !entityIds.Any())
                 return new List<T>();
