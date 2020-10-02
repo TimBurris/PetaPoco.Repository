@@ -26,6 +26,17 @@ namespace PetaPoco.Repository
             _unitOfWork = unitOfWork;
         }
 
+        /// <summary>
+        /// exposes the current assigned unit of work, primarily for information purposes
+        /// </summary>
+        protected Abstractions.IUnitOfWork UnitOfWork
+        {
+            get
+            {
+                return _unitOfWork;
+            }
+        }
+
         protected virtual PetaPoco.IDatabase GetDatabase()
         {
             //even if there is a unitofwork, db could be null if unitof work has ended)
