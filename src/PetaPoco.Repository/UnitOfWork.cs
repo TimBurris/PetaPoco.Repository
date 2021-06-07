@@ -22,7 +22,7 @@ namespace PetaPoco.Repository
         {
             _databaseFactory = databaseFactory;
 
-            var db = this.GetDatabase() as Database;
+            var db = this.GetDatabase();
             _petaTransaction = new Transaction(db);
             _db = db;
         }

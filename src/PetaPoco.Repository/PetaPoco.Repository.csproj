@@ -9,8 +9,12 @@
     <PackageTags>Peta Poco Peta-Poco PetaPoco Repository Repository-Pattern microorm Micro-ORM ORM</PackageTags>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\PetaPoco.Repository.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="PetaPoco.Compiled" Version="6.0.441" />
+    <PackageReference Include="PetaPoco.Compiled" Version="6.0.480" />
   </ItemGroup>
 
   <ItemGroup>
