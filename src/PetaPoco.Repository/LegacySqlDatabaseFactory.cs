@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PetaPoco.Repository
 {
-
     /// <summary>
-    /// The default factory which utilizes <see cref="CustomSqlServerDatabaseProvider"/>
+    /// this factory uses the base <see cref="PetaPoco.Providers.SqlServerDatabaseProvider"/> which does not support INSERT on tables that have triggers
     /// </summary>
-    public class DefaultSqlDatabaseFactory : Abstractions.IDatabaseFactory
+    public class LegacySqlDatabaseFactory : Abstractions.IDatabaseFactory
     {
         private readonly string _connectionString;
 
-        public DefaultSqlDatabaseFactory(string connectionString)
+        public LegacySqlDatabaseFactory(string connectionString)
         {
             _connectionString = connectionString;
         }
@@ -20,7 +17,7 @@ namespace PetaPoco.Repository
         {
             try
             {
-                return new PetaPoco.Database(_connectionString, new CustomSqlServerDatabaseProvider()); //i've switched from the base  provider to our custom provider because supporting triggers should be supported by default.  i'm providing a LegacySqlDatabaseFactory for anyone who does not want that funcationality
+                return new PetaPoco.Database(_connectionString, new Providers.SqlServerDatabaseProvider());
             }
             catch (ArgumentException ex)
             {

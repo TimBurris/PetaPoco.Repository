@@ -38,6 +38,10 @@ namespace SampleWithDependencyInjection
 
             //this one is optional, if you aren't using any services to extend yoru crud repo (like last user/date stamper or logger, you could omit this and just force null in your repository implementations)
             services.AddSingleton<PetaPoco.Repository.Abstractions.ICrudRepositoryServiceCollection, PetaPoco.Repository.CrudRepositoryServiceCollection>();
+
+
+            //enable this factory and use the "CreateAndGet" endpoint if you want to see a demonstration of PetaPoco's base provided failing to insert records whenever a trigger exists on the table
+            //services.AddSingleton<PetaPoco.Repository.Abstractions.IDatabaseFactory>(new PetaPoco.Repository.LegacySqlDatabaseFactory(conString));
             services.AddSingleton<PetaPoco.Repository.Abstractions.IDatabaseFactory>(new PetaPoco.Repository.DefaultSqlDatabaseFactory(conString));
 
             //here we are registering our own data repositories

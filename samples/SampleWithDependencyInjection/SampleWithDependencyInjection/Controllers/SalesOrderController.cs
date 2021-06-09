@@ -28,5 +28,20 @@ namespace SampleWithDependencyInjection.Controllers
         {
             return _salesOrderRepository.GetAll();
         }
+
+        [HttpGet("CreateAndGet")]
+        public IEnumerable<Data.Models.SalesOrder> CreateAndGet()
+        {
+
+            var newRec = new Data.Models.SalesOrder()
+            {
+                SoldBy = "Jenny, Jenny",
+                Amount = 86753.09m,
+            };
+            
+            _salesOrderRepository.Add(newRec);
+
+            return _salesOrderRepository.GetAll();
+        }
     }
 }
