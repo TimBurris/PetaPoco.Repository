@@ -75,3 +75,8 @@ then add services
 [PetaPoco.Repository.CreateUpdateStamper](https://github.com/TimBurris/PetaPoco.Repository.CreateUpdateStamper// "PetaPoco.Repository.CreateUpdateStamper") is a Middleware Service Implementation allowing you automatically stamp your Models with Created By, Updated By, Created On Date and Updated On Date values at the time that it's written to the repository.
 
 [PetaPoco.Repository.Logging](https://github.com/TimBurris/PetaPoco.Repository.Logging "PetaPoco.Repository.Logging") is a Middleware Service Implementation that includes Logging capability for the repositories
+
+### Want to say thank you?
+If something in this repo has helped you solve a problem, or made you more efficient, I welcome your support!
+
+<a href="https://www.buymeacoffee.com/timburris" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
