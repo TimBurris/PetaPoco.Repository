@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PetaPoco.Core.Compiled" Version="5.1.306" />
+    <PackageReference Include="PetaPoco.Compiled" Version="6.0.480" />
   </ItemGroup>
 
 </Project>
