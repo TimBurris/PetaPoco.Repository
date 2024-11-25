@@ -6,6 +6,7 @@ namespace PetaPoco.Repository
     /// <summary>
     /// The default factory which utilizes <see cref="CustomSqlServerDatabaseProvider"/>
     /// </summary>
+    [Obsolete("This class is deprecated, please use DefaultMsSqlDatabaseFactory instead; but it uses Microsoft.Data.Sql so you'll need to change your nuget and you'll need to trust server certificates")]
     public class DefaultSqlDatabaseFactory : Abstractions.IDatabaseFactory
     {
         private readonly string _connectionString;
