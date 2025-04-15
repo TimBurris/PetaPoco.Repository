@@ -61,7 +61,7 @@ namespace PetaPoco.Repository
         /// <param name="columnName">the name of the column to use in the where clause</param>
         /// <param name="value">the value to compare columnName to
         /// <returns></returns>
-        protected IEnumerable<T> QueryWithSingleFilter<T>(string columnName, object value)
+        protected virtual IEnumerable<T> QueryWithSingleFilter<T>(string columnName, object value)
         {
 
             string sql = $"WHERE {columnName} = @0";
@@ -76,7 +76,7 @@ namespace PetaPoco.Repository
         /// <param name="sql"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        protected IEnumerable<T> Query<T>(string sql, params object[] args)
+        protected virtual IEnumerable<T> Query<T>(string sql, params object[] args)
         {
             using (var db = this.GetDatabase())
             {
@@ -91,7 +91,7 @@ namespace PetaPoco.Repository
         /// <typeparam name="T"></typeparam>
         /// <param name="sql"></param>
         /// <returns></returns>
-        protected IEnumerable<T> Query<T>(PetaPoco.Sql sql)
+        protected virtual IEnumerable<T> Query<T>(PetaPoco.Sql sql)
         {
             using (var db = this.GetDatabase())
             {
@@ -124,7 +124,7 @@ namespace PetaPoco.Repository
         /// <param name="columnName">the name of the column to use in the where clause</param>
         /// <param name="value">the value to compare columnName to
         /// <returns></returns>
-        protected IEnumerable<T> QueryWithSingleFilter(string columnName, object value)
+        protected virtual IEnumerable<T> QueryWithSingleFilter(string columnName, object value)
         {
             return this.QueryWithSingleFilter<T>(columnName, value);
         }
@@ -135,7 +135,7 @@ namespace PetaPoco.Repository
         /// <param name="sql"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        protected IEnumerable<T> Query(string sql, params object[] args)
+        protected virtual IEnumerable<T> Query(string sql, params object[] args)
         {
             return this.Query<T>(sql, args);
         }
@@ -145,7 +145,7 @@ namespace PetaPoco.Repository
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
-        protected IEnumerable<T> Query(PetaPoco.Sql sql)
+        protected virtual IEnumerable<T> Query(PetaPoco.Sql sql)
         {
             return this.Query<T>(sql);
         }
