@@ -26,7 +26,7 @@ namespace PetaPoco.Repository
             }
         }
 
-        public virtual IEnumerable<T> FindAllByIds(IEnumerable<TPrimaryKeyType> entityIds)
+        public virtual IEnumerable<T> FindAllByIds(IEnumerable<TPrimaryKeyType> entityIds, int batchSize = 2000)
         {
             if (entityIds == null || !entityIds.Any())
                 return new List<T>();
@@ -36,9 +36,16 @@ namespace PetaPoco.Repository
                 string primaryKeyColumn = db.Provider.EscapeSqlIdentifier(PetaPoco.Core.PocoData.ForType(typeof(T), db.DefaultMapper).TableInfo.PrimaryKey);
                 string sql = $"WHERE {primaryKeyColumn} IN(@0)";
 
-                return db
-                    .Fetch<T>(sql, entityIds)
-                    .ToList();
+                //sql server only allows 2100 params, if entityIds is larger than that, we need to chunk it up
+                return entityIds.ProcessInBatches(batchSize: batchSize, (ids) =>
+                {
+                    //we need to use the db.Fetch method so that it will handle the IN clause properly
+                    return db.Fetch<T>(sql, ids).ToList();
+                });
+
+                //return db
+                //    .Fetch<T>(sql, entityIds)
+                //    .ToList();
             }
         }
 
