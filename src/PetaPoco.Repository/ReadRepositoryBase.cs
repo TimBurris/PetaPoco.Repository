@@ -41,7 +41,7 @@ namespace PetaPoco.Repository
                 {
                     //we need to use the db.Fetch method so that it will handle the IN clause properly
                     return db.Fetch<T>(sql, ids).ToList();
-                });
+                }).ToList();
 
                 //return db
                 //    .Fetch<T>(sql, entityIds)
