@@ -76,7 +76,7 @@ namespace PetaPoco.Repository
         /// <param name="columnName">the name of the column to use in the where clause</param>
         /// <param name="values">the values to compare columnName to
         /// <returns></returns>
-        protected virtual IEnumerable<T> QueryWithInFilter<T, TKey>(string columnName, IEnumerable<TKey> values)
+        protected virtual IEnumerable<T> QueryWithInFilter<T, TValue>(string columnName, IEnumerable<TValue> values)
         {
             if (values?.Any() != true)
             {
