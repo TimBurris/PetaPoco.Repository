@@ -76,7 +76,7 @@ namespace PetaPoco.Repository
         /// <param name="columnName">the name of the column to use in the where clause</param>
         /// <param name="values">the values to compare columnName to
         /// <returns></returns>
-        public IEnumerable<T> QueryWithInFilter<T, TKey>(string columnName, IEnumerable<TKey> values)
+        protected virtual IEnumerable<T> QueryWithInFilter<T, TKey>(string columnName, IEnumerable<TKey> values)
         {
             if (values?.Any() != true)
             {
@@ -146,6 +146,18 @@ namespace PetaPoco.Repository
         protected virtual IEnumerable<T> QueryWithSingleFilter(string columnName, object value)
         {
             return this.QueryWithSingleFilter<T>(columnName, value);
+        }
+
+        /// <summary>
+        /// wraps up the process of starting an IDatabase instace, executing the query by builing a very simple where IN clause with one filter, and closing out the IDatabase instance
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="columnName">the name of the column to use in the where clause</param>
+        /// <param name="values">the values to compare columnName to
+        /// <returns></returns>
+        protected virtual IEnumerable<T> QueryWithInFilter<TValue>(string columnName, IEnumerable<TValue> values)
+        {
+            return this.QueryWithInFilter<T, TValue>(columnName, values);
         }
 
         /// <summary>
