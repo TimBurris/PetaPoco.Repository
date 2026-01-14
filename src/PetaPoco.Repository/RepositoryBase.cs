@@ -70,6 +70,25 @@ namespace PetaPoco.Repository
         }
 
         /// <summary>
+        /// wraps up the process of starting an IDatabase instace, executing the query by builing a very simple where IN clause with one filter, and closing out the IDatabase instance
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="columnName">the name of the column to use in the where clause</param>
+        /// <param name="values">the values to compare columnName to
+        /// <returns></returns>
+        public IEnumerable<T> QueryWithInFilter<T, TKey>(string columnName, IEnumerable<TKey> values)
+        {
+            if (values?.Any() != true)
+            {
+                return Enumerable.Empty<T>();
+            }
+
+            var sql = $"WHERE {columnName} IN(@0)";
+
+            return this.Query<T>(sql, values);
+        }
+
+        /// <summary>
         /// wraps up the process of starting an IDatabase instace, executing the query, and closing out the IDatabase instance
         /// </summary>
         /// <typeparam name="T"></typeparam>
