@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace PetaPoco.Repository
 {
-    internal static class IEnumerableExtensions
+    public static class IEnumerableExtensions
     {
         public static IEnumerable<IEnumerable<T>> Batch<T>(
             this IEnumerable<T> source, int size)

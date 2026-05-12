@@ -82,10 +82,10 @@ namespace PetaPoco.Repository
             {
                 return Enumerable.Empty<T>();
             }
-
+            const int batchSize = 2000;
             var sql = $"WHERE {columnName} IN(@0)";
 
-            return this.Query<T>(sql, values);
+            return values.ProcessInBatches(batchSize, batch => this.Query<T>(sql, batch));
         }
 
         /// <summary>
